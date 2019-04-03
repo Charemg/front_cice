@@ -11,14 +11,12 @@ Ejercicios del curso front en CIFE Fuenlabrada (Abril/Julio 2019)
 
 ```shell
 npm install -g http-server
+```
 
-```
 ## Configurar Git
-```
+
+```shell
 git config --global user.name <username>
 git config --global user.email <useremail>
 git config --global -l
-
-
-
 ```
