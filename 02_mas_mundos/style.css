@@ -1,3 +1,8 @@
 body {
     background-color: papayawhip
 }
+
+/* Esto es para todas las imagenes */
+img {
+    width:50%
+}
