@@ -22,7 +22,7 @@ body
     color: darkgreen
 }
 /* aplicamos estilos a como queremos que se muestren las iámegenes, css es muy listo y mantiene el rango de proporcionalidad */
-img {width: 45%}
+img, embed {width: 45%} /* Aqui podemos poner todas las cosas que queremos que nos lasm muestre con las mismas caracteristicas separados con una coma */
 
 figure {margin: 0;
 padding: 0;

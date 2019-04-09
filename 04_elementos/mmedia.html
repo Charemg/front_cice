@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Alejandro Cerezo">
+    <meta name="author" content="Chare Muñoz">
     <meta name="description" content="Ejercicios del curso Desarrollo Front en CIFE">
     <meta name="keywords" content="Web, HTML, desarrollo front">
     <meta name="generator" content="Visual Studio Code">
@@ -29,6 +29,7 @@
                 <li><a href="./index.html">Inicio</li></a>
                 <li><a href="./index.html#bloques">Bloques</a></li>
                 <li><a href="./index.html#en_linea">En línea</a></li>
+                <li><a href="./form.html">Formulario</li></a>
                 <li><a href="#">Multimedia</li></a>
             </ul>
     </header>
@@ -81,7 +82,20 @@
             <p>Los videos pueden proceder de una fuente externa como Youtube</p><!-- Insertamos el video de youtube desde compartir y entre las etiquetas, tienen un comportamiento muy escaso , vienen con el atributo frame border, (deprecado es que esta fuera del standard) desventaja es que tiene que estar en youtube, la alternativa es que los videos pueden proceder de una fuente interna-->
             <iframe width="560" height="315" src="https://www.youtube.com/embed/GxQjx7FkmNA"allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p>Los videos también pueden proceder de nuestro propio red interno</p><!-- Si los videos proceden de una fuente interna, HTML5 incorpora una etiqueta nativa que se llama video -->
-            <video src="./assets/Ghost_in_the_Shell_Opening.webm" controls=""></video><!-- Sale sin controles, pero si le añado un atributo controls se le añaden sin necesidad de añadirle igual a nada y si nos vamos a CSS lo redimensionamos -->
+            <video src="./assets/Ghost_in_the_Shell_Opening.webm" controls=""></video><!-- Sale sin controles, pero si le añado un atributo controls se le añaden sin necesidad de añadirle igual a nada y si nos vamos a CSS lo redimensionamos, entre la apertura y el cierre, dentro de video metemos la etiqueta source -->
+            <video controls><!-- Si lo ponemos como se muestra en este ejemplo le damos la posibilidad de que se muestren en cualquier navegador -->
+            <source src="./assets/Ghost_in_the_Shell_Opening.webm" type="video/webm">
+                <source src="./assets/Ghost_in_the_Shell_Opening.mp4" type="video/mp4"></video>
+            <!-- <video controls src="./assets/Ghost_in_the_Shell_Opening.mp4" type="video/mp4"></video> Esto me obliga a ser formato de apple -->
+            <!-- VLC lleva un conversor muy potente a otro formato de video -->
+            <h3>Elementos de navegación gráficos</h3>
+            <p>Los svg se pueden tratar como documentos en lugar de como imagenes</p>
+            <embed src="./assets/logo.svg" type="image/svg+XML">
+            <!-- embeber documentos embebidos, va vinculado a un plug in que va a saber que hacer con cada documento y permite seleccionar por partes y es responsive en todo momento, es plano no tiene etiqueta de cierre, se puede hacer tambien con figure y con object -->
+            <h3>Audio</h3>
+            <p>Incluir audios</p>
+            <audio src="./assets/SampleAudio_0.4mb.mp3" controls></audio><!-- Dependiendo el navegador nos va a mostrar unos controles de reproducción, si quisieras una clase de reproductores especificos deberias programarlos con javascript -->
+
     </main>
 
 

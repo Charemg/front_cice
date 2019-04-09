@@ -1,0 +1,73 @@
+<!DOCTYPE html><!-- Instalar plug in intellisense for CSS -->
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Chare Muñoz">
+    <meta name="description" content="Ejercicios del curso Desarrollo Front en CIFE">
+    <meta name="keywords" content="Web, HTML, desarrollo front">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario-Curso Front</title>
+    <!-- <style>
+        body {background-color: bisque}
+    </style> -->
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        console.log('Hola mundo')
+    </script>
+    <script src="./js/app.js"></script>
+</head>
+<div class="content-wrapper">
+    <!-- Al ponerle la class: content-wrapper ya aparece con margen porque le hemos aplicado forma con css -->
+    <header>
+        <nav>Documentos - Metadatos - Bloques</nav>
+        <h1>Elementos de HTML 🔥 αβ</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Inicio</li></a>
+                <li><a href="./index.html#bloques">Bloques</a></li>
+                <li><a href="./index.html#en_linea">En línea</a></li>
+                <li><a href="./mmedia.html">Multimedia</li></a>
+                <li><a href="#">Formulario</li></a>
+            </ul>
+    </header>
+    <main>
+        <section id="form">
+            <header>
+                <h2>Formulario</h2>
+            </header>
+            <p>Están disponibles los siguientes controles</p><!-- Son formularios aquello que puede controlar algo -->
+            <ul>
+                <li>input text</li><!-- Caja donde aparece nombre -->
+                <li>text area</li><!-- se recoje un texto de varias lineas -->
+                <li>checkbox</li><!-- cuendo lo pulas te deja hacer lo que sea con dos valores true o false -->
+                <li>radio buttons</li><!-- Te permite la elección entre varios -->
+                <li>select/options</li><!-- Sale un desplegable -->
+                <li>botones</li><!-- Botones de submit -->
+            </ul>
+            <h3>Ejemplo de formulario</h3><!-- Pongo cualquiera de ellos y por js hago lo que quiero con ellos --><!--   <form action="" method="GET"> -->
+                <form action="https://jsonplaceholder.typicode.com/users" method="POST"><!-- Normalmente le enviamos los datos a un servidor que recoge los datosy eso lo ponemos en action, le decimos que en el sitio de destino ellos sabran como tratar los datos, si no pones nada en el action te envias los datos a ti mismo, pero el back te genera los datos como una linea que se llama query streaming , lo que hace un "GET" es totalmente insegura porque se podría encontrar la query streaming-->
+                <input type="text" name="name" id="nombre" placeholder="nombre"><!-- Input text se añade todo solo, le añadimos el placeholder, es inprescindible que tenga asignado nombre dentro del name para que lo indexe con el back hay que consensuar con el back para saber como les va a llegar al formulario -->
+             <button type="submit">Enviar</button>
+            
+            </form><!-- esto es lo mismo que si seleccionamos el form get -->
+           
+        </section>
+
+    
+
+
+
+    </main>
+    <aside id="publi">
+        <p>Publicidad</p>
+    </aside>
+</div>
+
+<body>
+    <footer></footer>
+</body>
+
+</html>
