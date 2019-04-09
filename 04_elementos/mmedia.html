@@ -1,6 +1,6 @@
-    
-<!DOCTYPE html>
+<!DOCTYPE html><!-- Instalar plug in intellisense for CSS -->
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Alejandro Cerezo">
@@ -19,22 +19,79 @@
     </script>
     <script src="./js/app.js"></script>
 </head>
-<body>
+<div class="content-wrapper">
+    <!-- Al ponerle la class: content-wrapper ya aparece con margen porque le hemos aplicado forma con css -->
     <header>
         <nav>Documentos - Metadatos - Bloques</nav>
         <h1>Elementos de HTML 🔥 αβ</h1>
         <nav>
-                <ul>
-                    <li><a href="./index.html">Inicio</li></a>
-                    <li><a href="./index.html#bloques">Bloques</a></li>
-                    <li><a href="./index.html#en_linea">En línea</a></li>
-                    <li><a href="#">Multimedia</li></a>
-                </ul>
+            <ul>
+                <li><a href="./index.html">Inicio</li></a>
+                <li><a href="./index.html#bloques">Bloques</a></li>
+                <li><a href="./index.html#en_linea">En línea</a></li>
+                <li><a href="#">Multimedia</li></a>
+            </ul>
+    </header>
+    <main>
+        <section>
+            <header>
+                <h2>Elementos embebidos multimedia</h2>
+                <p>Veremos como utilizar:</p>
+                <!-- main etiqueta nos permite definir aquella parte de una página eb que es exclusiva de ella -->
             </header>
-    <section>
-        <header>
-            <h2>Multimedia</h2>
-        </header>
-    </section>
+            <ul>
+                <li>Imagenes
+                    <ul>
+                        <li>jpeg</li>
+                        <!-- JPEG tiene una paleta de colores enorme de millosne contiene más información aunque es un formato comprimido para la web son estupendas ya que se representan muy bien -->
+                        <li>gif</li>
+                        <!-- GIF Tiene una paleta de colores muy pequeña giff, puede tener transparencias y puede tener animaciones mientras el jpeg no -->
+                        <li>png</li>
+                        <!-- PNG tiene dos variantes de 8 bits y de 24 bits: el de 8 es un poco intentar lo que hacen los gif porque guardan poquitos colores pero mejora al giff tiene una transparencia de canal alfa de un 20 % y ocupa poco, y el de 24 es como un jpeg con mucha más calidad pero mucho más peso -->
+                        <li>(webp)</li><!-- No es standard pero como lo soporta chrome, edge y firefox -->
+                        <!-- Hay una web que se llama can i useque tipos de formato, etiqueta y te va a decir que tipo de formato soporta -->
+                        <!-- Es un elemento en línea por eso si colocamos las fotos más pequeñas se nos colocan sobre la misma linea, genera un espacio entre ellas, entre mi primera imagen y otra hay un retorno de carro por eso me gera un espacio, por eso es importante saber que funcionan en linea -->
+                        <!-- Las imagenes son display inline block -->
+                        <li>svg</li><!--  Muestra imagenes vectoriales se basan en concepto matemáticos y se pueden reproporcionar sin romper, si lo usamos como una imagen el sistema lo renderiza como una imagen y al ir al navegador a verlo, si selecciono el objeto lo trata como si fuera un png, hay otra manera de tratarlo que es como un documento XML y se pueden empotrar sdentro del documento como un XML-->
+                </li>
+            </ul>
+            <li>Videos y Audio
+                <ul>
+                    <li>mp4</li><!-- Es el formato standar que propone Apple, son formatos contenedores, dentro cada unom define el codec de audio y el audio de video, mpeg, mp3, ASCIII, pero tiene un problema legal, esta cedido, se puede revocar la cesión y si tienes muchos formatos mp4 pues se fastidia la web, todos los navegadores lo soportan -->
+                    <li>ogg</li><!-- propuesto por Firefox y Opera, software libre pero daba menos calidad, se ha quedado desfasado -->
+                    <li>webm</li><!-- Solución que ofrece Chrome MATRUSCKA mkv que especifica que video debe tener dentro, calidad muy parecida a mp4 pero de formato libre, pero tiene una pega los Apple los representan-->
+            </li>
+            </ul>
+            <li>Elementos de navegación gráficos
+                <ul>
+                    <li>mp4</li>
+            </li>
+            </section</ul> </section> <h3>Imagenes</h3>
+            <img src="./assets/piramides_gizah.jfif" alt="Piramides de Gizah">
+            <img src="./assets/piramides.png" alt="Piramides">
+            <figure>
+                <img src="./assets/tropical-sunrise.webp" alt="Amanecer tropical">
+                <figcaption> Amanecer tropical </figcaption>
+            </figure>
+            <!-- Es un elemento de grouping pero semanticamente es para guardar elementos multimedia, solo uno, por defecto tienen un margin de 8 pixel, chrome, ademas de contener imágenes puede contener una etiqueta nueva que es la fig caption lo entiende como un parrafo que esta relacionado con la foto, es decir como un pie foto -->
+            <figure>
+                <img src="./assets/logo.svg" alt="logotipo">
+            </figure>
+            <h3>Video y Audio</h3>
+            <p>Los videos pueden proceder de una fuente externa como Youtube</p><!-- Insertamos el video de youtube desde compartir y entre las etiquetas, tienen un comportamiento muy escaso , vienen con el atributo frame border, (deprecado es que esta fuera del standard) desventaja es que tiene que estar en youtube, la alternativa es que los videos pueden proceder de una fuente interna-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/GxQjx7FkmNA"allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Los videos también pueden proceder de nuestro propio red interno</p><!-- Si los videos proceden de una fuente interna, HTML5 incorpora una etiqueta nativa que se llama video -->
+            <video src="./assets/Ghost_in_the_Shell_Opening.webm" controls=""></video><!-- Sale sin controles, pero si le añado un atributo controls se le añaden sin necesidad de añadirle igual a nada y si nos vamos a CSS lo redimensionamos -->
+    </main>
+
+
+    <aside id="publi">
+        <p>Publicidad</p>
+    </aside>
+</div>
+
+<body>
+    <footer></footer>
 </body>
+
 </html>

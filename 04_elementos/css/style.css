@@ -21,3 +21,13 @@ body
 .verde {
     color: darkgreen
 }
+/* aplicamos estilos a como queremos que se muestren las iámegenes, css es muy listo y mantiene el rango de proporcionalidad */
+img {width: 45%}
+
+figure {margin: 0;
+padding: 0;
+}/* el margen se aplican a los 4 lados */
+
+video{
+    width: 100%;
+}

@@ -26,24 +26,22 @@
         <nav>
                 <ul>
                     <li><a href="#">Inicio</li></a>
-                    <li><a href="#bloques">Bloques</a></li>
+                    <li><a href="#bloques">Bloques</a></li><!-- Nos lleva a un sitio de la propia web con la almohadilla -->
                     <li><a href="#en_linea">En línea</a></li>
-                    <li><a href="./mmedia.html">Multimedia</li></a>
-                </ul>
-        <body>
-                <header>
-                   
+                    <li><a href="./mmedia.html">Multimedia</li></a><!-- ./ nos lleva a otra página dentro de la misma web, ../ nos sube un nivel por cada ../../ nos sube dos niveles -->
+                </ul>       
     </header>
     <div class="content-wrapper">
-        <section>
+        <main><!-- Colocacmos las secciones que sean propias de esa web y la información no se comparta con otras páginas -->    
+            <section id="doc_html">
             <header>
                 <h2>El documento</h2>
             </header>
             <p>html</p>
         </section>
-        <section>
+        <section id="metadatos">
             <header>
-            <h2>Metadatos</h2> 
+            <h2>Metadatos</h2> <!-- Todos los elementos del head -->
             </header>
             <p>Los metadatos de crean empleando las siguientes etiquetas</p>
             <ul>
@@ -59,8 +57,8 @@
             <header>
                 <h2>Elementos en bloque</h2>
             </header>
-            <section>
-                <h3>Sectioning</h3>
+            <section id="sectioning">
+                <h3>Sectioning</h3><!-- Segmentos que permite seccionar la estructura sin ser visible -->
                 <p>Antes de <abbr title="HyperText Markup Language 5">HTML5</abbr>: body, los encaezados (h1...h6) daban lugar al seccionado implícito</p>
                 <p>En HTML5 aparecen los elemntos semánticos de seccionado explicito:</p>
                 <ul>
@@ -106,7 +104,7 @@
                     </footer>            
                 </blockquote>
             </section>
-            <section>
+            <section id="grouping"><!-- Las etiquetas que se ven afectadas en la estructura visual -->
                 <h3>Grouping</h3>
                 <h4>Parrafos</h4>
                 <p>p, pre, blockquote</p>
@@ -143,11 +141,11 @@
                 </ul>       
             </section>
         </section>
-        <section id="en_linea">
+        <section id="en_linea"><!-- Afecta a la linea -->
             <header>
                 <h2>Elementos en linea</h2>
             </header>
-            <section>
+            <section id="hiperenlaces">
                 <h3>Hiperenlaces</h3>
                 <p>Corresponden a la etiqueta a con el atributo href para indicar la url</p>
                 <p>Hay varios tipos de url</p>
@@ -159,8 +157,8 @@
                 </ul>
                 <p>Ejemplo de url absoluta si accedamos al <a href="https://www.w3.org/TR/html52/" target="_blank" rel="external ">estandar en el w3c</a></p>
             </section>
-            <section>
-                <h3>Text Level</h3>
+            <section id="text_level">
+                <h3>Text Level</h3><!-- Elementos en linea neutros -->
                 <h4>Elementos en linea neutros</h4>
                 <ul>
                     <li>span</li>
@@ -202,9 +200,14 @@
                 </ul>
             </section>
         </section>
+        <!-- Los id nos sirve para identificar la estructura y poder identificar secciones para poder hiperenlazar o incluso aplicarles estilos y javascript --></main>
+    
+        <aside id="publi">
+            <p>Publicidad</p>
+        </aside>
     </div>
     <footer>
-        <address>Chare Muñoz - © CIFE</address>
+        <address>Chare Muñoz - © CIFE</address><!-- esta etiqueta se utiliza para poner la autoría -->
     </footer>
 </body>
 </html>
