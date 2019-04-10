@@ -4,30 +4,31 @@ body {
 }
 
 .main-header {
-    background-color: brown;
+    background-color:brown;
     color: bisque;
     padding: 2rem;
 }
-.main-header h1 {
-    margin: 0rem;
-    padding: 0rem;
+
+/* Esto actúa como espacio de nombres. Es una manera de anidar */
+
+.main-header-h1 { 
+    margin: 0;
+    padding: 0;
 }
-body>header p {
+
+.main-header-p {
     margin-bottom: 0;
-    margin-top: 0;
+    margin-top: 0,2rem;  
+}
+
+.content-wrapper {
+    margin: 2rem;
 }
 
 .main-footer {
     background-color: brown;
     color: bisque;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     text-align: center;
-}
-
-.content_wrapper {
-    margin: 2rem;
-}
-
-h1 {
-    margin: 0;
-    padding: 0;
 }
