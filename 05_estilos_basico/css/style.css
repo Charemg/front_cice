@@ -1,0 +1,36 @@
+/* Selector de etiqueta */
+h1{
+    color: brown;
+} /* el ; es opcional si solo hay una opcion, si existen más opciones es imprescindible */
+
+/* el h1 representa al selector, color es la propiedad y brown es la variacion */
+p {
+    color: darkgreen;
+}
+/* Selectores de id, # solo se les aplicara a ese id propio porque cada uno tiene su id especifico, es mucho más especifico que uno global
+        Buena práctica: NO SE USAN ya que los usan los maquetadores de js
+        */
+#p01 {
+    color: crimson;
+}
+/* Selectores de clase, de esta manera no se crearion conflictos de especificidad con los id*/
+.resaltado {
+    color: darkblue;
+}
+
+/* Selectores de atributo [atributo="valor"] mostramos dos usos distintos de los atributos*/
+[name="name"] {
+    background-color: bisque; 
+}
+[required]{
+    border-color:brown;}
+/* Agrupar selectores de etiqueta y agrupados */
+h1,h2{
+    color: brown;
+}
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.5rem;
+}

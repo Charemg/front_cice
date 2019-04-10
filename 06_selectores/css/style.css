@@ -1,0 +1,27 @@
+/* Selector de descendientes y el simbolo es el espacio */
+section p {
+    color: brown;
+}
+
+
+/* selector de hijo y el operador de hijo > */
+
+section>p {
+    color: blueviolet;
+}
+
+
+/* Selector de hermanos que usa el operador ~ (virgulilla)  se saca con alt gr 4*/
+
+div~p {
+    color: coral
+}
+/*  No existen los hermanos a priori solo lo que aparezca despues a partir de la etiqueta que estemos mostrando es decir a posteriori */
+
+/* Selector de hermanos adyacentes y utiliza como operador el simbolo +  y es importante que siempre se coloque despues del hermano*/
+
+div+p {
+    color: darkgoldenrod;
+}
+
+/* Estos dos ultimos a penas se usa a menos que tengamos que hacer menus */
