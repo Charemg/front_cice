@@ -1,17 +1,18 @@
-/* Selector de descendientes y el simbolo es el espacio */
+/* Siempre se lee de derecha a izquierda */
+/* Selector de descendientes ;operador es el espacio */
 section p {
     color: brown;
 }
 
 
-/* selector de hijo y el operador de hijo > */
+/* selector de hijo y el operador de hijo >, se usa para hacer menus */
 
 section>p {
     color: blueviolet;
 }
 
 
-/* Selector de hermanos que usa el operador ~ (virgulilla)  se saca con alt gr 4*/
+/* Selector de hermanos que usa el operador ~ (virgulilla)  se saca con alt gr 4 mas espacio*/
 
 div~p {
     color: coral
