@@ -1,3 +1,6 @@
+p {
+    font-size: 1rem;
+}
 /* Un elemento lo es porque lleva una etiqueta que lo dice, algo que tiene unas caracteristicas que lo definen sin necesidad de ponerle una etiqueta es un pseudo-elemento viene implicito sabemos de que se trata, y lo ponemos con ::  */
 section>p::first-letter {
     font-size: 4rem;
@@ -31,10 +34,36 @@ a,a:visited {
 
 /* section p:nth-child(1) {
     color: blue
-}/* El primer hijo de la seccion */ */
+}/* El primer hijo de la seccion */ 
 
 section p:nth-of-type(1){
     color: blue;
-}
+} 
 /* El primer hijo de tipo p de la seccion */
+/* Selector universal, se aplica a todas las etiquetas * {}*/
 
+body{
+    font-family: 'Open+Sans', sans-serif;
+    border: 1px solid;
+} /* Ejemplo de herencia: 
+    - La fuente si se hereda 
+    - el borde no se hereda */
+
+/* * {
+    font-family: 'Open+Sans', sans-serif;
+    border: 1px solid;
+} */
+
+
+header {
+    font-family: 'Lobster', regular;
+}
+
+/* preguntar lo de que las fuentes se heredan */
+
+/* Es un modificador que me permite hacer */
+*:not(p) {
+    color: blue
+}
+
+/* Especificidad se agina como una serie de numeros que cada uno de ellos refleja  */
