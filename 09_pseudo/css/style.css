@@ -1,0 +1,40 @@
+/* Un elemento lo es porque lleva una etiqueta que lo dice, algo que tiene unas caracteristicas que lo definen sin necesidad de ponerle una etiqueta es un pseudo-elemento viene implicito sabemos de que se trata, y lo ponemos con ::  */
+section>p::first-letter {
+    font-size: 4rem;
+}
+
+/* prefijos de fabricantes, existen tres - moz (mozilla) son reglas de fabricantes, son exclusivos para ellos y no va a funcionar en ellos -webkit (chrome y safari) -ms (microsoft) -o (opera) */
+aside p::first-line {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+/* Afectaria a la primera linea inteligentemente y dependiendo de como lo muestra el dispositivo  */
+
+section div p::before {
+    content: "!!";
+
+}
+/* Esto afecta a los parrafos que se encuentren "dentro de" siempre debe de estar entre comillas lo que quieres que se muestre en el content: " "; */
+
+/* Pseudo clases son como pseudo-clases son contextuales y pertenecen a una clase porque le pasa algo */
+
+p:hover {
+    color: brown
+}
+/*  */
+
+a,a:visited {
+    color:brown;
+}
+
+/* Pseudo-clases que no se utilizan demasiaso pero son muy potentes,  son las que tienen que ver con las posiciones y aparecen en CSS3 */
+
+/* section p:nth-child(1) {
+    color: blue
+}/* El primer hijo de la seccion */ */
+
+section p:nth-of-type(1){
+    color: blue;
+}
+/* El primer hijo de tipo p de la seccion */
+
