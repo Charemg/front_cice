@@ -24,7 +24,7 @@
     </div>
     </header>
     <div class="content_wrapper">
-      <section><!-- hermano de header es sibling, hijo de body -->
+    <main class="main-content">      <section id="seccion1"><!-- hermano de header es sibling, hijo de body -->
         <header>
             <h2>Seccion 1</h2>
         </header>
@@ -37,7 +37,20 @@
         <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum eos deleniti, assumenda nisi impedit dignissimos officia non perspiciatis eligendi facere rerum asperiores quos dolorum pariatur aut laboriosam voluptatibus tempora ipsa!</P>
         <P>Voluptate asperiores eaque quia odio. Praesentium voluptate nihil et modi fugiat mollitia ullam consequatur officiis numquam voluptas aspernatur saepe iure quas iste quos non rem, iusto tempore cumque voluptatem? Perspiciatis.</P>
     </section>
-    <aside>
+    <section id="seccion2"> 
+        <header>
+            <h2>Seccion 2</h2>
+        </header>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente nobis delectus harum iure, recusandae deserunt molestiae id repellendus quasi ab est reiciendis ea rerum reprehenderit enim tenetur esse fugiat nam?</p>
+        <p>Odit omnis deleniti quos vitae? Quaerat, eveniet veniam adipisci aspernatur reiciendis in totam iste numquam fugit accusamus dolor beatae blanditiis, corporis aliquam veritatis! Nesciunt voluptate illum iusto accusantium, aliquid recusandae.</p>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et laboriosam accusantium, earum quia fuga excepturi est fugit recusandae consectetur cumque porro aliquid molestias nesciunt, rerum alias dolore minus! Aliquid, perspiciatis?</p>
+            <p>Eos, provident. Soluta eum, sint tenetur voluptates temporibus magni in facere recusandae incidunt ipsum ab repellendus explicabo, sit rem? Voluptas debitis aspernatur, assumenda obcaecati similique deserunt voluptate nam quidem sunt.</p>
+        </div>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum eos deleniti, assumenda nisi impedit dignissimos officia non perspiciatis eligendi facere rerum asperiores quos dolorum pariatur aut laboriosam voluptatibus tempora ipsa!</P>
+        <P>Voluptate asperiores eaque quia odio. Praesentium voluptate nihil et modi fugiat mollitia ullam consequatur officiis numquam voluptas aspernatur saepe iure quas iste quos non rem, iusto tempore cumque voluptatem? Perspiciatis.</P>
+    </section> 
+    <aside class="main-aside">
         <header>
             <h2>Más información</h2>
         </header>
@@ -46,11 +59,13 @@
    <footer>
        <p>&copy; CIFE</p>
    </footer>
-    </aside>   
+    </aside>  
+    </main>
     </div>
+    <div class="clearfix"></div>
    <footer class="main-footer">
 <address>Chare Muñoz - CIFE</address>
-<aside class="menu social_menu">
+<aside class="menu social-menu">
     <ul>
         <li><a href="#" title="Facebook""><i class="fab fa-facebook-square"></i></a></li><!-- i es un elemento que se sale de lo normal -->
         <li><a href="#" title="Twitter""><i class="fab fa-twitter-square"></i></a></li>
