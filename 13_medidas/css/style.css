@@ -3,11 +3,30 @@ p {
     font-size: 0.9rem;/* en standard en HTML 1 em equivale a 16, los ems son siempre proporcionales a la letra padre */
     /* font-size: 16px; valores en absoluto no se deben aplicar , no son estables , en cambio los rem se calculan en cuanto al root em que es el 16px*/
     padding: 2rem;
+    
 }
 
 section {
     font-size: 0.9rem;
+    background-color: bisque;
+    /* height: 80vh; Altura fija */
+    min-height: 80vh; /* Altura variable dependiendo del contenido */
+    overflow: auto;/* Rellena según el contenido */
 }
 div {
     font-size: 0.9rem;
 }
+
+/* .target:hover {
+    text-indent: 2rem;
+} */
+.efecto:hover .target {
+    color: blue; 
+}
+.target:hover+.efecto {
+    color: blueviolet;
+}
+
+/* vh
+vw
+ */
