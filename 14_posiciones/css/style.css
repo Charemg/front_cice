@@ -1,0 +1,19 @@
+section {
+    position: relative;
+}/* Con esto generamos el eje u origen de coordenadas */
+section p {
+padding: 1rem;
+background-color: coral;
+}
+.relativo {
+    position: relative;
+    top: 3rem;/* desplazamiento desde un origen de coordenadas desde su posición original y dejan memoria del espacio que ocupaban */
+    left: 3rem;
+}
+/* Se crea una capa flotante sobre este elemento */
+
+.absoluto {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+}/* Todo el resto se reorganiza, no se conserva su posicion el origen de coordenadas el primer elemento de ascendentes que encuentre la posición del estático, si existe un elemento distinto del estático lo toma como referencia */
