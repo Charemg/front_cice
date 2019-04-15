@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+/* Esto imprescindible para decidir si la referencia width es que delimita el border box */
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+.cuadrados p {
+
+    margin: calc(calc(100% - calc(18%*5)) /10);/* Este es el calculo para trabajar los margenes, cada calc solo coge 2 valores */
+    padding: 1rem;
+    background-color: coral;
+    width: 18%;
+    float: left;
+}
+/* p {
+    margin: calc(calc(100% - calc(18%*5)) /10);/* Este es el calculo para trabajar los margenes, cada calc solo coge 2 valores */
+    padding: 1rem;
+    background-color: coral;
+    width: 18%;
+    float: left;
+} */
+
+/* Los margenes laterales no colapsan, los superiores e inferiores si, los padding no colapsan nunca */
+}
+.clearfix {
+    clear: both;
+}
+.real {
+    margin: 2rem;
+}
+.real p {
+    float: left;
+    width: 33.33%;
+}
+.real p:not(:first-child) {
+    padding-left: 1.5rem;
+}

@@ -1,0 +1,39 @@
+:root {
+    --color-fondo: rgb(156, 28, 28);
+    --color-letra: rgb(228, 190, 145);
+    --margen-base: 2rem;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-header {
+    background-color:var(--color-fondo);
+    color:var(--color-letra);
+    padding: 2rem;
+}
+
+.main-header-h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.main-header-p {
+    margin-bottom: 0;
+    margin-top: calc(var(--margen-base)/10);
+}/* Te hace un calculo de una variable calc(--X/10) */
+
+.content_wrapper {
+    margin: var(--margen-base);
+}
+
+.main-footer {
+    background-color: var(--color-fondo);
+    color:var(--color-letra);
+    padding-top: 1.2rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
