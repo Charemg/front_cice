@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-header {
+    background-color: brown;
+    color: bisque;
+    padding: 2rem;
+    font-family: 'Pacifico', sans-serif;
+}
+
+.main-header div {
+    margin: 2rem;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin-bottom: 0;
+    margin-top: 0.2rem;
+}
+
+.main_menu {
+    border: 1px solid;
+    border-radius:5px;
+    width: fit-content;
+    position: absolute;
+    top: 2px;
+    right: 1rem;
+}
+.main_menu li {
+    display: inline-block;
+}
+.main_menu ol, menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.main_menu a {
+    display: block;
+    text-decoration: none;
+}
+
+
+.main_menu a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+}
+.content-wrapper {
+    margin: 2rem;
+}
+
+.main-footer {
+    background-color: brown;
+    color: bisque;
+    padding-top: 1.2rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+.social-menu {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
