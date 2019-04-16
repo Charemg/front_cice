@@ -121,4 +121,7 @@ body {
 
 .social-menu li {
     display: inline;
+    color:bisque;
+/* si le añadios al color un a estamos añadiendo un alfa (opacidad) hsla (240,100%, 50%, 0.5) y se expresa del 0 al 1 */
+/* opacity: se mide en porcentajes y es más facil aplicarlo a fondos e incluso imágenes ya que si se le aplica a un elemento o texto lo heredaria el resto de elementos, sipor lo tanto lo mejor seria trabajarlo con los cnales alfa en cada elemtno */
 }

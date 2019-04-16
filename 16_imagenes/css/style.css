@@ -1,0 +1,22 @@
+img {
+    /* width: fit-content;  *//* le aplicamos esto para decirle a las imagenes que no se muestren a mas tamaño de su tamaño real */
+    max-width:100%;
+   /*  width: 100%; */
+} /* Se ajusta al 100% de su padre div el wrapper */
+/* fit-content: nos mostraria su tamaño real de ancho */
+
+.image-wrapper-50 {
+    width: 50%;
+/*     float: left;
+    margin-right: 1rem; */
+    float: right;
+    margin-left: 1rem;
+}
+
+.image-wrapper-25 {
+    width: 25%;
+}
+
+.image-wrapper-75 {
+    width: 75%;
+}
