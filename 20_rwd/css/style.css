@@ -18,6 +18,7 @@ body {
     color: bisque;
     padding:1rem 2rem 1rem 2rem;
     font-family: 'Open Sans', cursive;
+    margin: 1rem,
 /* position: relative; */ /* lo ponemos para que actúe como origen de las coordenadas que vamos a dar */
 }
 
@@ -27,6 +28,8 @@ body {
     margin: 1rem;
 }
  */
+
+ /* reseteo de valores */
 .main-header h1 {
     margin: 0;
     padding: 0;
@@ -44,6 +47,7 @@ body {
     /* visibility: hidden; */ /* No cambia el resto de los elementos porque respeta el espacio. */
 }
 
+/* Reseteo de los valores genéricos de cualquier menu */
 .menu ol, .menu ul {
     list-style: none;
     margin: 0;
@@ -55,6 +59,7 @@ body {
     text-decoration: none;
 }
 
+/* menu principal */
 .main-menu {
     border: 1px solid;
     border-radius: 5px;
@@ -64,6 +69,8 @@ body {
 
 .main-menu ol {
     display: flex;
+    padding-left: 1rem;
+    margin-left: 1rem;
 }
 
 .main-menu a {
@@ -80,6 +87,7 @@ body {
     display: flex;
 } */
 
+/* Secciones principales */
 .main-content {
    /* width: 70%;
     para flex-grow; flex-shrink; flex-basis
@@ -136,3 +144,36 @@ td,th {
 /* si le añadios al color un a estamos añadiendo un alfa (opacidad) hsla (240,100%, 50%, 0.5) y se expresa del 0 al 1 */
 /* opacity: se mide en porcentajes y es más facil aplicarlo a fondos e incluso imágenes ya que si se le aplica a un elemento o texto lo heredaria el resto de elementos, sipor lo tanto lo mejor seria trabajarlo con los cnales alfa en cada elemtno */
 }
+@media screen and (min-device-width: 640px) {
+    .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+}
+
+@media screen and (min-device-width: 920px) {
+    .content-wrapper {
+        margin: 2rem;
+        display: flex;
+}
+    .main-content {
+        /* width: 70&; */
+        /* para flex-grow; flex-shrink; flex-basis */
+        flex: 3 1 10%;
+    }
+    .main-aside {
+        /* width: 30%; */
+        flex: 1 3 10%;
+        margin-right:1.5rem; 
+    }
+    .main-footer {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    .main-header {
+        padding: 2rem;
+    }
+}
+/* Si ponemos en device no va a funcionar en escritorios */
+/* Si ponemos en min-width si va a funcionar */
