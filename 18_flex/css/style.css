@@ -1,0 +1,29 @@
+/* Son elementos flexibles por defecto tienen el ancho de su contenido y se colocan uno al lado del otro  */
+section.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px double gainsboro;
+    height: 60vh;
+    /* Alineación en el eje principal */
+    justify-content:center;
+    /* space-around los distribulle todos al centro - space-betwen los deja */
+    /* Alineación en el eje secundario */
+    align-items: flex-start; /* stretch Por defecto significa estirar los elementos */
+    /* flex start del alto de su contenido */
+    /* Alineacion entre filas */
+    align-content: flex-end; /* Lo colcoca al final del contenido de la caja */
+}
+
+p.item {
+    margin: 1rem 0rem;
+    padding: 1rem;
+    background-color: coral;
+    border: 1px solid;
+}
+p.item:nth-child(4) {
+    padding: 2rem 1rem;
+    font-size: 3rem;
+    order: -1; /* Le aplicas el orden a los items en este caso le hemos puesto que este se coloque el primero */
+
+}
