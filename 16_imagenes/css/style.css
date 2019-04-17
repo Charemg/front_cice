@@ -33,7 +33,7 @@ img {
     background-image:url("../assets/3boats.jpg");
     background-repeat: no-repeat; 
     background-size: 100%; 
-    background-size:content;  no sabemos que balncos nos va a mostrar (mirarlo)
+    background-size:contain;  no sabemos que balncos nos va a mostrar (mirarlo)
     background-size:cover;
     background-blend-mode: soft-light; */
 }
