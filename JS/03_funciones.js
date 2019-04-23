@@ -1,3 +1,4 @@
+/* Opera desde los valores que le vienen asignados desde fuera, esto es una función PURA y pueden ser reutilizadas */
 function suma (x, y) {
     let r = x + y /* esto es una variable local */
     return r
@@ -6,7 +7,7 @@ function suma (x, y) {
 
 function mostrar (texto) {
     console.log(texto)
-}
+}/* Esto es una función se conoce de interfaz */
 /* las variables viven en el ambito del ordenador, js tienen el ambito de las variables  */
 
 let number1 = 23 /* esta es una variable global */
@@ -22,7 +23,7 @@ mostrar (result)
 function sumarMal (x,y) {
     let r = x + y
     console.log(r)
-}
+} /* Se comporta diferente dependiendo de donde se muestre */
 
 sumarMal (2,5)
 

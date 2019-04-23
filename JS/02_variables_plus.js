@@ -41,3 +41,4 @@ function mostrar (input) {
 }
 mostrar(mostrar)
 
+/* JS tiene objetos de pleno derecho porque se hace con ellos lo mismo que se  puede hacer con un objeto al igual que a una función */

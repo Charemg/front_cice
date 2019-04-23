@@ -3,7 +3,7 @@ data = 30
 
 console.log(data)
 
-const DATA = 25
+const DATA = 25 /* Una vez que se establece su valor nunca podría cambiarse una constante */
 /* DATA = 50  esto daria un error*/
 
 console.log(DATA)
@@ -19,6 +19,9 @@ const user = {
 // JS es un lenguaje orientado a objetos orientado a prototipos y objetos literales
 
 user.altura=179
+user.name='Carlos'
+//user=26 daría un error
+// user {} daría un erroe
 
 console.log(user)
 console.log (user.name)

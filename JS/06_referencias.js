@@ -10,12 +10,17 @@ function duplicar (x) {
     return x
 }
 
-let user= {nombre: 'Pepe', edad: 23}
-matricular(user)
-console.log(user)
+let user1= {nombre: 'Pepe', edad: 23}
+matricular(user1)
+console.log(user1)
 
-function matricular(obj) {
-    obj.curso = 'JavaScript'
+let user2= {nombre: 'Rosa'}
+matricular(user2)
+console.log(user2)
+
+function matricular(obj, curso='JavaScript') {
+    obj.curso = curso
 }
+/* El obj hace referencia al valor, y cambia las referencias */
 
 
