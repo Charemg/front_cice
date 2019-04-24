@@ -85,3 +85,12 @@ let mensajes = [
     'No se admiten menores de edad'
 ]
 console.log(mensajes[i])
+
+//&& esto es el AND
+// || esto es el o y se le llama pipe
+// ! y esto es el not
+
+let x = 23
+!x /* Un not por delante convierte siempre en boolean false */
+
+(var1 & var 2) || var 3 /* Siempre se evaluan antes los & pero le ponemos los parentesis por si no me acuerdo cual tiene preferencia y de esa manera le dare yo la preferrencia */
