@@ -26,7 +26,7 @@ x= '3'
 /* Dentro de una condicion = asigna y el == es el que pregunta y === tendrian que ser identicos */
 /* 
 -Comparacion igual ==
--Comparación idéntico (en valor y tipo) 
+-Comparación idéntico (en valor y tipo) ===
 -Comparacion distinto != (en valor sin tener en cuanta el tipo)
 -Comparación no-idéntico !==
 */
