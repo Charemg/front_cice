@@ -47,10 +47,9 @@ for (let i = 0; i <amigos.length; i++) {
 
          console.log(mensajes[1])
   }
-
   let name = 'Arturo'
   name = 'Ernesto'
-
   mostrar(name)
+
 
  
