@@ -6,7 +6,7 @@
  /**
   * function fibonacci
   * @param num: number
-  * @return : number
+  * @param : number
   */
 
 let num= 1
@@ -27,3 +27,92 @@ console.log(penultimo) /* Mostramos el valor de penultimo porque no queremos per
 }
  
 fibonacci(200) /* Aqui le pido que me muestre el limite del numero que quiero asignarle */
+
+/**
+ * Programa para calcular los números de la serie de fibonacci por debajo de un valor dado
+ * 
+ * Partiendo de 0 y 1, cada elemento de la serie se calcula como la suma de los 2 anteriores
+ * 
+ */
+
+ /**
+  * function fibonacci
+  * @param limite: number
+  * @return: array [number]
+  * 
+  */
+
+  function fibonacci (limite) {
+    //let serie = [0,]/* aqui le vamos a pedir que nos saque la serie de fibonacci por un array */
+    let i = 0 
+    let j = 1
+    let serie = [i]
+
+  /*   for (let k = 0; k < infinity.length; k++) {
+      const element = array[k];
+      if () {
+        break /* aqui le decimos una condicion de salida porque es un bucle infinito */
+
+        while (j<=limite) {
+          let next = i + j
+          //serie[serie.length] = /* Añade al array */
+          i = j
+          j = next
+          serie.push(i) 
+
+      /*     while (j<=limite) {
+            let next = i + j
+            //serie[serie.length] = /* Añade al array
+            i = j
+            j = next
+            serie.push(i)   Esto es el algoritmo para hacer */
+      }
+    
+    return serie
+  }
+
+
+  /**
+   * function fibonacciFor
+   * @param limite: number
+   * @return: array [number]
+   */
+
+
+  /* function fibonacciFor (limite) {
+    /*  let i = 0
+     let j = 1 */
+     let serie = [i]
+
+/* for (let index = 0; index < 10; index++) {
+          let next = i + j
+          i = j
+          j = next
+          serie.push(i)
+          if(i > limite) {
+            break
+            //continue//Esto me mostraria el limite de los 50 numeros que le hemos puesto en el
+          } 
+      for (let i = 0, let j = 1; i < limite;) {
+        serie.push(i)
+      }
+      
+        }
+
+      return serie
+   }*/
+
+
+   function fibonacciFor (limite) {
+  
+     let serie = [0]
+     let next
+
+      for (let i = 0, j = 1; i < limite; i = j; j = next) {
+        serie.push(j)
+        next = i + j
+      }
+      return serie
+   }
+  let limite = 8
+  console.log(fibonacciFor(limite))
