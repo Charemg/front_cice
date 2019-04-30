@@ -1,0 +1,18 @@
+/* ESTA ES LA MANERA MÁS COMPLICADA DE PONER UN MENÚ */
+*, *::after, *::before, *:after *:before {
+    box-sizing: border-box; /* decide a que corresponde el ancho del widh */
+} /* Esta sería la instrucción completa para los navegadores y se pone así porque los after y before nunca están incluidos estos. Se escribe de esas dos maneras porque son las maneras en las que nos podemos encontrar estos dos pseudo-elementos.*/
+
+.main-header {
+    background-color:white;
+    color: black;
+    padding:2rem;
+    font-family: 'Rufina', bold;
+/* position: relative; */ /* lo ponemos para que actúe como origen de las coordenadas que vamos a dar */
+}
+
+.menu ol, .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

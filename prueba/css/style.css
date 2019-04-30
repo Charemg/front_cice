@@ -1,0 +1,83 @@
+/* ESTA ES LA MANERA MÁS COMPLICADA DE PONER UN MENÚ */
+*, *::after, *::before, *:after *:before {
+    box-sizing: border-box; /* decide a que corresponde el ancho del widh */
+} /* Esta sería la instrucción completa para los navegadores y se pone así porque los after y before nunca están incluidos estos. Se escribe de esas dos maneras porque son las maneras en las que nos podemos encontrar estos dos pseudo-elementos.*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;/* esto se lleva cada elemento a un lado y el otro elemento al otro */
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding:2rem;
+    font-family: 'Rufina', bold;
+}
+
+
+.main-header h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.main-header p {
+    margin-bottom: 0;
+    margin-top: 0.2rem;
+}
+
+.menu ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.main-menu {
+    border-radius: 800px;
+}
+
+
+.main-menu li {
+    display: inline-block;/* Para que se dispongan en línea pero actúe como bloque, las imagenes se comportan como inline-block */
+}
+
+
+.content-wrapper {
+    margin: 2rem;
+    display: flex;
+}
+
+.content-wrapper h2 {
+    font-family: 'Rufina', bold;
+}
+.content-wrapper h4 {
+    margin-top: 0.2rem;
+}
+
+.main-content {
+    width: 60%;
+    /* float: left; */
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0.2rem;
+}
+
+.main-aside {
+    width: 30%;
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0.2rem;
+    background-color: white;
+    text-align: center;
+}
+.main-aside p {
+    margin-top: 0.2rem;
+}
