@@ -12,11 +12,11 @@ body {
 
 .main-header {
     display: flex;
-    justify-content: space-between;/* esto se lleva cada elemento a un lado y el otro elemento al otro */
+    justify-content: space-between;
     align-items: center;
     background-color: white;
     color: black;
-    padding:2rem;
+    padding: 2rem;
     font-family: 'Rufina', bold;
 }
 
@@ -37,11 +37,9 @@ body {
     padding: 0;
 }
 
-
 .main-menu {
     border-radius: 800px;
 }
-
 
 .main-menu li {
     display: inline-block;/* Para que se dispongan en línea pero actúe como bloque, las imagenes se comportan como inline-block */
