@@ -81,7 +81,7 @@
 function isPali (cadena = '') {
     let r = true
     let cadenaSinEspacios = cadena.split(' ').join('').toLowerCase()
-    let cadenaInversa = cadenaSinEspacios.split('').reverse().join('').toLowerCase()
+    let cadenaInversa = cadenaSinEspacios.split('').reverse().join('')
     //console.log(cadenaInversa)
     if (cadenaSinEspacios !== cadenaInversa) {
         r = false
