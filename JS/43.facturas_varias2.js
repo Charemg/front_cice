@@ -36,7 +36,7 @@ function Item (descripcion, precio, cantidad){
     this.cantidad = cantidad
 }
 
-const factura1 = new Factura (
+const factura1 = new Factura(miEmpresa,
     new Empresa('Ediciones Boracay', 'C/Pez', '916583764', 'B-64539874'),
     new Empresa('Libros Tualag', 'C/Marques de', '917256983', 'M-64584741'),
     [new Item('Libro 1',20,12),
@@ -46,6 +46,9 @@ const factura1 = new Factura (
     'efectivo',
 )
 
+const miEmpresa = new Empresa ('Ediciones Boracay', 'C/Pez', '916583764', 'B-64539874' )
+const cliente1 = new Empresa ('Libros Tualag', 'C/Marques de', '917256983', 'M-64584741')
+const i
 console.log(factura1)
 factura1.muestraImporte()
 
