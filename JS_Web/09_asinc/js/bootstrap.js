@@ -1,4 +1,4 @@
-import {controller} from ' ./controller.js'
+import {controller} from './controller.js'
 
 
 document.addEventListener('DOMContentLoaded', controller)
