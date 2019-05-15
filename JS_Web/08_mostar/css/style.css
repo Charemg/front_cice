@@ -1,0 +1,21 @@
+section {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center; /* alineacion en el eje principal por defecto flex-start */
+    align-items: center;/*  alineación secuandaria por defecto stretch */
+}/* Si le aplicamos center, center conseguimos que se centre en el medio */
+
+.item-flex {
+    background-color: white;
+    text-align: center;
+    padding: 2rem;
+} Le hemos aplicado color para ver el espacio que ocupa
+
+.hide {
+    display: none
+}
+
+.boton {
+    cursor: pointer;
+    background-color: gainsboro;
+}
