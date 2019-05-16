@@ -1,59 +1,58 @@
-export function controller (){
-    
+export function controller() {
+
     console.log('Cargado el controller')
-    /**Nodos del DOM */
+
+    /** Nodos del DOM */
     let btnMostrar = document.querySelector('#btn-mostrar')
-    let btnSaludar = document.querySelector('#btn-saludar')
-    let btnLeer = document.querySelector('#btn-leer')
+    let btnSaludar = document.querySelector('#btn-saludar')     
+    let btnLeer = document.querySelector('#btn-leer') 
 
-
-    /**Manejadores de eventos */
-    btnMostrar.addEventListener('click', mostrar)
+    /** Manejadores de eventos */
     btnSaludar.addEventListener('click', saludar)
+    btnMostrar.addEventListener('click', mostrar)
     btnLeer.addEventListener('click', leerDatos)
     
-/* setTimeout(saludar,1000) //esto dice 1 segundos en ese momento se ejecutara la funcion saludar
 
-function saludar(){
-    console.log('Hola amigo')
-} */
+    function mostrar() {
 
-function mostrar () {
-setTimeout(()=>console.log('Item 1'), 0)
+        /* setTimeout(saludar,1000)
+        
+        function saludar() {
+            console.log('hola amigo')
+        } */
 
-console.log('Item 2')
+        setTimeout( ()=>console.log('Item 1'), 0 )
 
-setTimeout(()=>console.log('Item 3'), 2000)
+        console.log('Item 2')
 
-console.log('Item 4')
+        setTimeout( ()=>console.log('Item 3'), 2000 )
+        
+        console.log('Item 4')
 
-setTimeout(()=>console.log('Item 5'), 1000)
+        setTimeout( ()=>console.log('Item 5'), 1000 )        
+        
+    }
 
+    function saludar() {
+        console.log('Hola amigo')
+    }
+
+    function leerDatos() {
+
+        let i
+        // Lectura síncrona
+        // i = 33
+        // Lectura síncrona
+        setTimeout(() => {
+            i = 33
+            mostrarDatos()
+        }, 1000);
+
+        // mostrarDatos() // el resultado sería undefined
+
+        function mostrarDatos() {
+            console.log(i)
+        }
+        
+    }
 }
-
-function saludar (){
-    console.log('Hola Amigo')
-}
-
-function leerDatos (){
-    let i
-    //i=33
-    //Lectura síncrona
-    //mostrarDatos()
-     setTimeout (()=> {
-            i=33
-            mostrarDatos()// Aqui nos mostraria el dato
-        },1000)
-
-        //mostrarDatos() si lo dejamos aqui nos daría un valor undefined
-
-    function mostrarDatos (){
-        console.log(i)
-       
-}
-
-
-}
-
-}
-
