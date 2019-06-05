@@ -1,44 +1,66 @@
 export function controller () {
 
+    let i
+    let aNodosEnlaces
+    let lista
 
+    inicio()
 
-
-    const aNodosEnlaces = document.querySelectorAll('.social-menu a')
-    console.log(aNodosEnlaces)
-    const lista = document.querySelector('.social-menu a')
+    let listaInicial = lista.outerHTML
+    console.dir(listaInicial)
+    
     const pulsador = document.querySelector('#pulsador')
     const div = document.querySelector('div')
-    const section = document.querySelector('section')
-
-    aNodosEnlaces.forEach(nodo => nodo.addEventListener('click', onClick, true))
+    const section = document.querySelector('section')   
     pulsador.addEventListener('click', pulsarA)
-    div.addEventListener('click', pulsarDiv )
-    section.addEventListener('click',pulsarSection)
+    div.addEventListener('click', pulsarDiv)
+    section.addEventListener('click', pulsarSection)
+
+    // 3. Implemantar los manejadores de eventos
+
+    function inicio() {
+        i = 0 
+        aNodosEnlaces = document.querySelectorAll('.social-menu a')
+        console.log(aNodosEnlaces)
+        lista = document.querySelector('.social-menu')
+        aNodosEnlaces.forEach( nodo =>  nodo.addEventListener('click', onClick, true) )
+     }
 
     function onClick (ev) {
- /*        console.dir('Target')
+        i++
+        /* console.dir('Target')
         console.dir(ev.target)
-        console.dir('Currentarget')
-        console.dir(ev.currentTarget)
-        console.log(this)*/
-
+        console.dir('CurrentTarget')
+        console.dir(ev.currentTarget) */
         let nodoA = ev.currentTarget
-        nodoA.outerHTML = nodoA.innerHTML += `Ops! No tengo ${nodoA.title}<br>`
-        //ev.target.outerHTML = `Ops! No tengo ${ev.target.title}<br>`
-       
-            lista.outerHTML += `<p>JA, JA, JA ... estoy ilocalizable</p>`
-            <img src="./assets/"
+        nodoA.outerHTML = nodoA.innerHTML + `Ops! no tengo ${nodoA.title} <br>`
+        if (i == 5) {
+            lista.outerHTML += `
+            <div id="extra" class="social-menu">
+                <p>JA, JA, JA ... estoy ilocalizable</p>
+                <img src="./assets/tenor.gif">
+                <audio src="./assets/010707419_prev.mp3" autoplay></audio>
+            </div>
+                `
+            setTimeout(() => {
+                document.querySelector('#extra').outerHTML = ''
+                document.querySelector('.social-menu').outerHTML = listaInicial
+                inicio()
+            }, 3000)
+        }
     }
 
-    function pulsarA(){
-        console.log('Pulsado A')
+    function pulsarA() {
+        console.log('Pulsado a')
     }
-}
+
     function pulsarDiv(ev) {
-    console.log('Pulsado Div')
-}
-    function pulsarSection() {
-    console.log('Pulsado Section')
-}
-    
+        ev.stopPropagation()
+        console.log('Pulsado div')
+    }
 
+    function pulsarSection() {
+        console.log('Pulsado section')
+
+    }
+}
