@@ -71,3 +71,9 @@ section {
     font-size: 0.8rem;
     cursor: pointer;
 }
+.dialog {
+    border:none;
+    background-color: aquamarine;
+    color: azure;
+    text-align: center;
+}
