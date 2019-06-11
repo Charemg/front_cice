@@ -1,31 +1,47 @@
 import { GENEROS } from "./datos.js";
-import { ajax } from "./ajax.js"
+import { ajax } from "./ajax.js";
+import {setRadio} from "form_helpers.js"
 
 export function controller () {
     console.log('Controller cargado')
-    console.log(GENEROS)
+   
+    
+    /**Declaración de variables */
     const aGeneros = GENEROS
     const URLBASE = 'https://www.googleapis.com/books/v1/volumes'
     let iGenero
     let iAutor
     let html = ''
 
+    /** Elementos del DOM */
+
     let selectGeneros = document.querySelector('#generos')
     let selectAutores = document.querySelector('#autores')
     let btnPedir = document.querySelector("#btnPedir")
     let inNum = document.querySelector('#num')
-
+    let aLangRbtns = document.querySelectorAll('[name="lang"]')
+    
+    
+    
+    /** manejadores de Eventos */
     selectGeneros.addEventListener('change', onChangeGenero)
     selectAutores.addEventListener('change', onChangeAutores)
+
+
+
 
     btnPedir.addEventListener('click', onClickPedir)
     //btnPedir.onclick =  onClickPedir
 
+
+    /** Inicialización */
     aGeneros.forEach ( item => {
         html += `<option value="${item.value}">${item.label}</option>`     
     })
 
     selectGeneros.innerHTML = html
+
+    /**Funciones */
 
     function onChangeGenero(ev) {
         iGenero = ev.target.selectedIndex
@@ -58,6 +74,9 @@ export function controller () {
     function onClickPedir() {
         console.clear()
         console.log('Iniciando peticion')
+
+        console.log(setRadio(aLangRbtns))
+        aLangRbtns.
         let url = URLBASE + `?q=inauthor:${aGeneros[iGenero].autores[iAutor].value}`
         url += `&fields=items(volumeInfo(publisher,title,language))`
         url += `&maxResults=${inNum.value}` 
@@ -85,3 +104,4 @@ function mostrarRespuesta(aDatos) {
     tabla += '</table>'
     output.innerHTML = tabla
 }
+

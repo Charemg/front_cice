@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+
+
+header, section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+header {
+ justify-content: space-around;
+ align-items: 
+}
+
+section {
+    justify-content: center;
+    align-items: center;
+}
+
+section figure {
+    width: 20%;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+}
