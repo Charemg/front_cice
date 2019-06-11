@@ -1,87 +1,164 @@
-import { GENEROS } from "./datos.js";
-import { ajax } from "./ajax.js"
+import { isLetraDNIValida } from "./dni.js";
 
-export function controller () {
+export function controller() {
     console.log('Controller cargado')
-    console.log(GENEROS)
-    const aGeneros = GENEROS
-    const URLBASE = 'https://www.googleapis.com/books/v1/volumes'
-    let iGenero
-    let iAutor
-    let html = ''
 
-    let selectGeneros = document.querySelector('#generos')
-    let selectAutores = document.querySelector('#autores')
-    let btnPedir = document.querySelector("#btnPedir")
-    let inNum = document.querySelector('#num')
+    let formData = {}
+    let form_curso = document.querySelector('#form_curso')
+    let aControles = document.querySelectorAll(`[type="text"], 
+                                                [type="email"], 
+                                                [type="password"], 
+                                                [type="date"],
+                                                textarea`)
+    let aChecks = document.querySelectorAll('[ type="checkbox"]')
+    let aRadioSede = document.querySelectorAll('[name="sede"]')
+    let aRadioTurno = document.querySelectorAll('[name="turno"]')     
+    let aSelects = document.querySelectorAll('select')   
+    let dni =  document.querySelector('#dni')
 
-    selectGeneros.addEventListener('change', onChangeGenero)
-    selectAutores.addEventListener('change', onChangeAutores)
+    form_curso.addEventListener('submit', onSubmit)
 
-    btnPedir.addEventListener('click', onClickPedir)
-    //btnPedir.onclick =  onClickPedir
-
-    aGeneros.forEach ( item => {
-        html += `<option value="${item.value}">${item.label}</option>`     
+    aControles.forEach( item => {
+        if (item.willValidate) {
+            item.addEventListener('input', suspendValidation)
+            item.addEventListener('blur', () => {
+                validate(aControles[0])
+            })
+        }
     })
 
-    selectGeneros.innerHTML = html
+    dni.setCustomValidity('Letra del DNI incorrecta')
+    dni.addEventListener('change', () => {
+        console.dir(dni)
+        if (isLetraDNIValida(dni.value)) {
+            dni.setCustomValidity('')
+        }        
+    } )
 
-    function onChangeGenero(ev) {
-        iGenero = ev.target.selectedIndex
-        let aAutores = []
-        html = '<option value=""></option>'
-        if (iGenero) {
-            aAutores = aGeneros[iGenero].autores
-            aAutores.forEach ( item => { 
-                html += `<option value="${item.value}">${item.label}</option>`     
-            })    
-            selectAutores.focus()
-        } 
-        selectAutores.innerHTML = html
-        btnPedir.textContent = 'Pedir titulos'
-        btnPedir.disabled = true
+    function onSubmit(ev) {
+        console.log('Formulario enviado')
+        ev.preventDefault()
 
+        // Validacion    
+        for (let i = 0; i < aControles.length; i++) {
+            const item = aControles[i];
+            console.log('VALIDANDO', item.name)
+            console.dir(item)
+            if(item.validationMessage && !validate(item)) {
+                return
+            }
+        }
+                                                
+        aControles.forEach(item => formData[item.id] = item.value)                                                
+        aChecks.forEach(item => formData[item.id] = item.checked)
+        setRadio(aRadioSede, formData)
+        setRadio(aRadioTurno, formData)
+        aSelects.forEach(
+            item => setSelect(item, formData )
+        )
+        
+        setConfirmar(formData)
+    }
+}
+
+
+
+function validate(nodo) {
+    let msg = ''
+    if (nodo.validity.valueMissing) {
+        msg = 'Completa este campo'
+    } else if (nodo.validity.tooShort) {
+        msg = 'Auumenta la longitud de este campo'
+    } else if (nodo.validity.patternMismatch) {
+        msg = 'Adapta el campo al formato requerido'
+    } else if (nodo.validity.customError) {
+        msg = nodo.validationMessage
     }
 
-    function onChangeAutores (ev) { 
-        if (ev.target.selectedIndex) {
-            iAutor = ev.target.selectedIndex - 1
-            btnPedir.textContent = 'Pedir titulos de ' + aGeneros[iGenero].autores[iAutor].label
-            btnPedir.disabled = false
-        } else {
-            btnPedir.textContent = 'Pedir titulos'
-            btnPedir.disabled = true
+    if (msg) {
+        nodo.focus()
+        nodo.classList.add(".invalid")
+        nodo.nextElementSibling.innerHTML = msg
+        nodo.nextElementSibling.hidden = false
+        console.dir(nodo)
+        return false
+    } else {
+        nodo.classList.remove(".invalid")
+        nodo.nextElementSibling.hidden = true
+        return true
+    }
+}
+
+
+
+function suspendValidation (ev) {
+    ev.target.classList.remove(".invalid")
+    ev.target.nextElementSibling.hidden = true
+}
+
+
+function setRadio(radio, data) {
+    radio.forEach(
+        item => {
+            if (item.checked) {
+                // data[item.name] = item.value
+                data[item.name] = {id: item.value, value: item.id}
+                return
+            }
+        }
+    )
+}
+
+function setSelect(select, data) {
+    console.dir(select)
+    data[select.name] = {
+        id: select[select.selectedIndex].value, 
+        value: select[select.selectedIndex].text
+    }
+    /* {
+        clave: select.selectedOptions[0].value, 
+        nombre: select.selectedOptions[0].text
+    } */
+}
+
+function setConfirmar(data) {
+    let dialog = document.querySelector('#confirmar')
+    // dialog.open = true
+    
+    let datosOutput = document.querySelector('#datosOutput')
+   
+    datosOutput.innerHTML = mostrarObjeto(data)
+    
+    dialog.showModal()
+
+    document.querySelector('#btnConfirmar')
+        .addEventListener('click', ()=>{
+            dialog.close()
+            form_curso.submit()
+        })
+    
+    document.querySelector('#btnNoConfirmar')
+        .addEventListener('click', ()=>{
+            dialog.close()
+        })
+   
+
+}
+
+function mostrarObjeto(obj) {
+    let cadena = '<ul>'
+    for (const key in obj) {
+        const element = obj[key]
+        if (typeof element != 'object') {
+            cadena +=`<li>${key}: ${element}</li>`
+        }
+        else {  
+            cadena += '<li>'+ key
+            cadena +=  mostrarObjeto(element) 
+            cadena += '</li>'
         }
     }
-
-    function onClickPedir() {
-        console.clear()
-        console.log('Iniciando peticion')
-        let url = URLBASE + `?q=inauthor:${aGeneros[iGenero].autores[iAutor].value}`
-        url += `&fields=items(volumeInfo(publisher,title,language))`
-        url += `&maxResults=${inNum.value}` 
-        ajax(url, 'GET', procesarRespuesta)
-    }
-}
-
-function procesarRespuesta(response) {
-    let aDatos = JSON.parse(response).items
-    console.log(aDatos)
-    let aDatosFinal = aDatos.map( item => item.volumeInfo )
-    console.log(aDatosFinal)
-    mostrarRespuesta(aDatosFinal)
-}
-
-function mostrarRespuesta(aDatos) {
-    let output = document.querySelector('#output')
-    let tabla = '<table class="tabla">'
-    tabla += '<tr><th>Título</th><th>Editorial</th><th>Idioma</th></tr>'
-    aDatos.forEach( (item) => tabla += `
-        <tr>
-        <td>${item.title}</td>
-        <td>${item.publisher?item.publisher:'n/d'}</td>
-        <td>${item.language}</td></tr>`)
-    tabla += '</table>'
-    output.innerHTML = tabla
+    cadena += '</ul>'
+    console.log(cadena)
+    return cadena
 }
