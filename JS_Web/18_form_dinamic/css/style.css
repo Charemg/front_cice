@@ -16,15 +16,15 @@ header, footer {
     align-items: center;
 }
 
-.section {
+section {
     display: flex;
+    flex-wrap: wrap;
 }
 
 section>div {
     width: 50%;
     padding: 2rem;
 }
-
 
 fieldset {
     border-color: salmon;
@@ -64,27 +64,3 @@ fieldset {
     padding: 0.6rem;
 
 }
-
-.error {
-    color: brown;
-    margin: 0 0 0 4rem;
-    background-color: darkgray;
-    border: 2px dimgray groove;
-    padding: .6rem;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px 2px darkgray;
-    width: fit-content;
-}
-
-input:required {
-   background-color: bisque; 
-}
-
-/* input:invalid {
-    border: 1px brown solid;
-}  */
-
-
-.invalid {
-    border: 1px brown solid;
-} 
