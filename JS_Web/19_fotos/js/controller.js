@@ -1,12 +1,23 @@
-import { ajax } from "./ajax.js";
+/* import { ajax } from "./ajax.js"; */
 
 export function controller() {
     const URL = 'https://jsonplaceholder.typicode.com/photos?albumId=1'
-    const URL_USERS = "https://randomuser.me/api/?results=10"
+   /*  const URL_USERS = "https://randomuser.me/api/?results=10" */
     const aFotos = []
     let sectionFigures = document.querySelector('#figures')
-    ajax(URL, 'GET', getFotos )
+    //ajax(URL, 'GET', getFotos )//Maneja callbacks (lo dejamos comentado para ver el fetch)
 
+    /* fetch(URL).then(x)
+
+    function x(response){
+        return response.json()
+    }*/
+    fetch(URL)//maneja promesas y se gestionan con . then si el metodo va bien o .catch devuelveme
+    .then((response=> response.json())
+    .then(getFotos)
+    
+
+        
     // Elementos del DOM
     const btnAdd = document.querySelector('#put')
     let aBtnModificar 
@@ -21,8 +32,8 @@ export function controller() {
     function getFotos(response) {
         console.log(response)
         let html = ''
-        JSON.parse(response)     
-            .forEach( item => {
+       // JSON.parse(response)     
+            response.forEach( item => {
                 html += `
                     <figure>
                         <a href="${item.url}">
@@ -55,3 +66,5 @@ export function controller() {
         console.log('Borrando', ev.target.id)
     }
 } 
+
+// Lo que ehmos comentado es que lo teniamos en ajax y lo hemos pasado a fetch
