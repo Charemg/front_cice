@@ -14,4 +14,4 @@ export function ajax(url, metodo, callback) {
             callback(http.responseText)
         }
     }
-}
+} 
