@@ -1,0 +1,11 @@
+figcaption {
+    text-transform: capitalize;
+}
+
+.male {
+    color: darkmagenta;
+}
+
+.female {
+    color: darkolivegreen;
+}
