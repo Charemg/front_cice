@@ -2,6 +2,7 @@
 
 export function controller() {
     const URL = 'https://jsonplaceholder.typicode.com/photos?albumId=1'
+    const URl = 
    /*  const URL_USERS = "https://randomuser.me/api/?results=10" */
     const aFotos = []
     let sectionFigures = document.querySelector('#figures')
@@ -14,7 +15,7 @@ export function controller() {
     }*/
     fetch(URL)//maneja promesas y se gestionan con . then si el metodo va bien o .catch devuelveme
     .then((response=> response.json())
-    .then(getFotos)
+    .then((getFotos))
     
 
         
@@ -22,9 +23,14 @@ export function controller() {
     const btnAdd = document.querySelector('#put')
     let aBtnModificar 
     let aBtnBorrar 
+    const addFotoDlg = document.querySelector('#addFotoDlg')
+    const btnAddFoto = document.querySelector ('#btnAddFoto')
+    const btnCancelAddFoto = document.querySelector ('#btnCancelAddFoto')
 
     // Manejadores de eventos
     btnAdd.addEventListener('click', onAdd)
+    btnAddFoto.addEventListener('click', onClickDlgAdd)
+    btnCancelAddFoto.addEventListener('click', onClickDlgAdd)
 
 
     /*  "albumId": 1,
@@ -55,7 +61,31 @@ export function controller() {
 
 
     function onAdd () {
-        console.log('Añadiendo')
+        /* console.log('Añadiendo') */
+        addFotoDlg.showModal()
+    }
+
+    function onClickDlgAdd (ev) {
+        
+        let id =  ev.target.id// btnAddFoto 0 btnCancelAddFoto
+        
+        if (id == 'btnAddFoto'){
+            // añadir
+            let datos = {}
+            datos.albumId = document.querySelector('#albumId').value
+            datos.title = document.querySelector('#title').value
+            datos.thumbnailUrl = document.querySelector('#thumbnailUrl').value
+            datos.url = document.querySelector('#url').value
+
+            fetch(URL, {method: 'POST', body: JSON.stringify(datos)})
+            .then(response => console.log(response))
+
+        }else {//btnCancelAddFoto
+
+            addFotoDlg.close()
+        }
+
+
     }
 
     function onModify(ev) {
@@ -67,4 +97,4 @@ export function controller() {
     }
 } 
 
-// Lo que ehmos comentado es que lo teniamos en ajax y lo hemos pasado a fetch
+// Lo que hemos comentado es que lo teniamos en ajax y lo hemos pasado a fetch
