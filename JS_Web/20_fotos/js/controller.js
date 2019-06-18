@@ -1,25 +1,20 @@
 export function controller() {
 
+    //Variables de estado
+
     const URL = 'https://jsonplaceholder.typicode.com/photos'
     const URL_ALBUM1 = URL+'?albumId=1'
-    const aFotos = []
-    let sectionFigures = document.querySelector('#figures')
-
-    /* fetch(URL).then(x)
-    
-    function x(response) {
-        return response.json()
-    } */
-
-    fetch(URL_ALBUM1)
-    .then( response => response.json())
-    .then( getFotos )
-
+    let aFotos = []//Esto son mis datos
+    let itemActual = 0 //esto seria el item en el que nos encontramos
+ 
+ 
+ 
     // Elementos del DOM
     const btnAdd = document.querySelector('#put')
-    let aBtnModificar 
-    let aBtnBorrar 
-
+    let aBtnModificar //No existe hasta pedir renderizar datos
+    let aBtnBorrar //No existe hasta pedir renderizar datos
+   
+    //Elelemntos del DOM de los dialog(modales) inicialmente invisibles
     const addFotoDlg = document.querySelector('#addFotoDlg')
     const btnAddFoto = document.querySelector('#btnAddFoto')
     const btnCancelAddFoto = document.querySelector('#btnCancelAddFoto')
@@ -37,12 +32,25 @@ export function controller() {
     btnCancelModifyFoto.addEventListener('click', onClickDlgModify)
 
 
-    /*  "albumId": 1,
-    */   
-    function getFotos(response) {
-        console.log(response)
+    //Código inicial
+
+    getFotos(URL_ALBUM1)
+
+    function getFotos (url) {
+        fetch (url)
+        .then(response => response.json())//Siempre pedimos los datos en json de un Api Rest
+        .then(response => {
+            aFotos = response
+            console.log(aFotos)
+            renderFotos()
+        })// Esto es una operacion que normalmente lo hacemos al principio pero si queremos hacerla en otro momento tendremos que hacerla como función
+
+    }
+
+    function renderFotos() {
+        let sectionFigures = document.querySelector('#figures')
         let html = ''
-        response.forEach( item => {
+        aFotos.forEach( item => {
                 html += `
                     <figure>
                         <a href="${item.url}">
@@ -56,71 +64,120 @@ export function controller() {
             });
 
         sectionFigures.innerHTML = html
+
+        // Elementos del DOM recien renderizada
         aBtnModificar = document.querySelectorAll('.post')
         aBtnBorrar= document.querySelectorAll('.delete')
+       
+        // Manejadores de eventos correspondientes
         aBtnModificar.forEach( item => item.addEventListener('click', onModify))
         aBtnBorrar.forEach( item => item.addEventListener('click', onDelete))
     }
 
-
     function onAdd () {
         addFotoDlg.showModal()
+    }
+
+    function onModify(ev) {
+        itemActual =  ev.target.dataset.idDb
+        console.log('Modificando', itemActual)
+        modifyFotoDlg.showModal()
     }
 
     function onClickDlgAdd(ev) {
 
         let id = ev.target.id // btnAddFoto o btnCancelAddFoto
         if (id == 'btnAddFoto') {
-            // añadir
-            let datos = {}
-            datos.albumId = document.querySelector('#albumId').value
-            datos.title = document.querySelector('#title').value
-            datos.thumbnailUrl = document.querySelector('#thumbnailUrl').value
-            datos.url = document.querySelector('#url').value
 
-            let myHeaders = new Headers({
-                "Content-Type": "application/json"
-            });
-              
+            if (document.querySelector('#title').value) {
+                // añadir
+                let datos = {}
+                datos.albumId = document.querySelector('#albumId').value
+                datos.title = document.querySelector('#title').value
+                datos.thumbnailUrl = document.querySelector('#thumbnailUrl').value
+                datos.url = document.querySelector('#url').value
 
-            fetch(URL, {method: 'POST', body: JSON.stringify(datos), headers: myHeaders})
-            .then (response => response.json())
-            .then (data =>  console.log(data))
+                document.querySelector('#title').value = ''
 
+                let myHeaders = new Headers({
+                    "Content-Type": "application/json"
+                });
+                
+
+                fetch(URL, {method: 'POST', body: JSON.stringify(datos), headers: myHeaders})
+                .then (response => response.json())
+                .then (data =>  {
+                    console.log(data)
+                    aFotos.push(data)
+                    renderFotos()
+                })               
+            }
         }
         addFotoDlg.close()
 
     }
 
-    function onModify(ev) {
-        console.log('Modificando', ev.target.dataset.idDb)
-        modifyFotoDlg.showModal()
-    }
-
     function  onClickDlgModify(ev) {
         let id = ev.target.id // 
         if (id == 'btnModifyFoto') {
-            let datos = {}
-            datos.title = document.querySelector('#modi_title').value
 
-            let myHeaders = new Headers({
-                "Content-Type": "application/json"
-            });
-            let url = URL + `/${ev.target.dataset.idDb}`
-            fetch(url, {method: 'PATCH', body: JSON.stringify(datos), headers: myHeaders})
-            .then (response => response.json())
-            .then (data =>  console.log(data))
+            if(document.querySelector('#modi_title').value) {
+                let datos = {}
+                datos.title = document.querySelector('#modi_title').value
+                document.querySelector('#modi_title').value = ''
+
+                let myHeaders = new Headers({
+                    "Content-Type": "application/json"
+                });
+                let url = URL + `/${itemActual}`
+                fetch(url, {method: 'PATCH', body: JSON.stringify(datos), headers: myHeaders})
+                .then (response => response.json())
+                .then (data =>  {  
+                    aFotos.splice(indexFoto(),1,data)
+                    renderFotos()
+                })                
+            }
         }
         modifyFotoDlg.close()
     }
-
+ 
     function onDelete(ev) {
-        console.log('Borrando', ev.target.dataset.idDb)
-        let url = URL + `/${ev.target.dataset.idDb}`
+        itemActual =  ev.target.dataset.idDb
+        console.log('Borrando', itemActual)
+        let url = URL + `/${itemActual}`
         console.log(url)
-        fetch('url', {method: 'DELETE'})
+
+        let myHeaders = new Headers({
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Credentials': true
+        });
+
+        fetch(url, {method: 'DELETE', headers: myHeaders})
         .then (response => response.json())
-        .then (data =>  console.log(data))
-        .catch (error => console.error(error))
+        .then (data =>  
+            { if (data) {
+                aFotos.splice(indexFoto(),1)
+                renderFotos()
+            } 
+        })
+
+    }
+
+    function confirmarDelete () {
+        if () {
+
+        } else {
+            
+        }
+    }    
+    function indexFoto() {
+        let index
+        aFotos.some( (item, i) => { if(item.id == itemActual) {
+                                            index = i
+                                            return true
+                                        }
+                                    })
+        console.log(index)
+        return index
     }
 }
